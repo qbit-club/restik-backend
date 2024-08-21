@@ -15,7 +15,7 @@ export class OrdersSocketService implements OnGatewayConnection {
     @ConnectedSocket() client: any,
     @MessageBody('room') room: any
   ) {
-    console.log('joined room:', room);
+    // console.log('joined room:', room);
     client.join(room)
   }
 
