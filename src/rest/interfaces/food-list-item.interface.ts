@@ -11,4 +11,6 @@ export interface FoodListItem {
   }
   price: string
   images: string[]
+  forWeighing: boolean
+  averageMassOfOne: number
 }

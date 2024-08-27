@@ -178,15 +178,17 @@ export class RestController {
   @Put('/update-meal')
   async updateMeal(
     @Query('rest_id') restId: string,
-    @Query('meal_id') mealId: string,
     @Body('meal') meal: FoodListItemFromDb,
   ) {
-    await this.RestModel.updateOne(
-      { "_id": restId, "foodList._id": mealId },
-      { $set: { 'foodList.$': meal } },
-      { runValidators: true }
-    )
-    return await this.RestModel.findById({ "_id": restId })
+    let restFromDb = await this.RestModel.findById(restId)
+    for (let i = 0; i < restFromDb.foodList.length; i++) {
+      if (restFromDb.foodList[i]._id == meal._id) {
+        restFromDb.foodList[i] = meal
+        break
+      }
+    }
+    restFromDb.markModified('foodList')
+    return await restFromDb.save()
   }
   @Post('/menu')
   async addToMenu(
