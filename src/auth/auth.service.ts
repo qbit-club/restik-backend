@@ -73,7 +73,7 @@ export class AuthService {
     userData = this.TokenService.validateAccessToken(accessToken)
 
     if (userData != null) {
-      user = (await this.UserModel.findById(userData._id)).toObject()
+      user = await this.UserModel.findById(userData._id)
 
       return {
         refreshToken: refreshToken,
