@@ -9,12 +9,14 @@ export enum StatusEnum {
 export const LAST_STATUS: string = 'delivered'
 
 export interface Order {
-  items: [{
+  items: {
     price: number,
     count: number,
     menuItem: string,
     images: string[],
-  }]
+    forWeighing: boolean,
+    averageMassOfOne: number,
+  }[],
   rest: string,
   user: {
     name: string,

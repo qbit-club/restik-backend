@@ -16,6 +16,8 @@ export class OrderClass {
       price: number;
       count: number;
       menuItemId: string;
+      forWeighing: boolean;
+      averageMassOfOne: number;
       images: string[];
     },
   ];
