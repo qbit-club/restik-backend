@@ -12,8 +12,8 @@ export class MailService {
     // const url = `example.com/auth/confirm?token=${token}`;
     await this.mailerService.sendMail({
       to: user.email,
-      from: '"Команда проекта" <plpo@ya.ru>', // override default from
-      subject: 'Спасибо за регистрацию в Глазов-есть!',
+      from: '"Команда проекта Глазов-есть!" <plpo@ya.ru>', // override default from
+      subject: 'Спасибо за регистрацию',
       template: './confirmation', // `.hbs` extension is appended automatically
       context: { // ✏️ filling curly brackets with content
         name: user.name,
@@ -26,7 +26,7 @@ export class MailService {
     return await this.mailerService.sendMail({
       to: userEmails,
       from: "Команда Глазов-есть <plpo@ya.ru>", // override default from
-      subject: 'Новый заказ в Глазов-есть!',
+      subject: 'Новый заказ',
       template: 'order', // `.hbs` extension is appended automatically
       context: { order: order._doc }
     });

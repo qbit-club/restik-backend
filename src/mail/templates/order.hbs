@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
 
-<head>
-</head>
-
-<html>
-
-<body>
   <h3>Заказ принят в работу</h3>
 
   <div class="heading">
@@ -17,6 +9,12 @@
   <div class="info">{{order.user.name}}</div>
   <div class="info">{{order.user.phone}}</div>
   <div class="info">{{order.user.address}}</div>
+  <div class="heading">
+    <b>
+      Способ оплаты:
+    </b>
+  </div>
+  <div class="comment">{{order.user.paymentType}}</div>
 
   <div class="heading">
     <b>
@@ -33,9 +31,8 @@
     </b>
   </div>
   <div class="comment">{{order.user.comment}}</div>
-</body>
 
-</html>
+
 <style>
   body {
     color: black !important;

@@ -23,6 +23,7 @@ export interface Order {
     phone: string,
     address: string,
     comment: string,
+    paymentType: string,
     _id: string | undefined
   },
   date: string,
