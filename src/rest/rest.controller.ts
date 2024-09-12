@@ -88,7 +88,7 @@ export class RestController {
       toReturn.push(toPush)
     }
 
-    return res.json(toReturn)
+    return res.json(toReturn.reverse())
   }
   @Get('all-with-hidden')
   async getAllWithHidden() {
