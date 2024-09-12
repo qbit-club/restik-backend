@@ -296,7 +296,7 @@ export class RestController {
     );
     let res = await this.RestModel.findByIdAndUpdate(
       restId,
-      { $pull: { "foodList": { "_id": new mongoose.Types.ObjectId(mealId) } } },
+      { $pull: { "foodList": { "_id": mealId } } },
       { new: true },
     );
     return res
