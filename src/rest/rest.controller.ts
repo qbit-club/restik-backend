@@ -289,17 +289,19 @@ export class RestController {
     @Query('rest_id') restId: string,
     @Query('meal_id') mealId: string,
   ) {
+
     await this.RestModel.findByIdAndUpdate(
       restId,
       { $pull: { menu: mealId } },
       { new: true },
     );
-    let res = await this.RestModel.findByIdAndUpdate(
+    const result = await this.RestModel.findByIdAndUpdate(
       restId,
-      { $pull: { "foodList": { "_id": mealId } } },
+      { $pull: { foodList: { _id: mealId } } },
       { new: true },
     );
-    return res
+  
+    return result;
   }
 
   @Put('add-email')
