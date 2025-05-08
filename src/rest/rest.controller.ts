@@ -100,6 +100,14 @@ export class RestController {
     return x
   }
 
+  @Get('rests-alias')
+  async getRestsAlias() {
+    let res = await this.RestModel.find({ deleted: false, isHidden: false });
+    return res.map(item => ({
+      loc: `/${item.alias}`, 
+ 
+  }));
+  }
   // @HttpCode(HttpStatus.OK)
   // @Get('get-managers')
   // async getManagersOfRest(@Query('rest_id') rest_id: string) {
