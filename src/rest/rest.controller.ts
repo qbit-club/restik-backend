@@ -71,7 +71,7 @@ export class RestController {
   async getAll(
     @Response() res
   ) {
-    let restsFromDb = await this.RestModel.find({ isHidden: false, deleted: false });
+    let restsFromDb = await this.RestModel.find({ isHidden: false, deleted: false }).sort({placeOnShowcase: -1});
     // console.log(restsFromDb[0]);
 
     let toReturn = []

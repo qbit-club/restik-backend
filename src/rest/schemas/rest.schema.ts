@@ -68,6 +68,13 @@ export class RestClass {
   })
   location: Object;
 
+  @Prop({
+    type: Number,
+    required: false,
+    default: 1000,
+  })
+  placeOnShowcase: Number;
+
   // @Prop({
   //   type: mongoose.Schema.Types.ObjectId,
   //   ref: 'User',
@@ -110,7 +117,7 @@ export class RestClass {
   }
   @Prop({
     type: Array,
-    required: false
+    required: false,
   })
   managers: string[];
 
@@ -123,7 +130,7 @@ export class RestClass {
   @Prop({
     type: Boolean,
     required: false,
-    default: true
+    default: true,
   })
   isHidden: boolean;
 
@@ -133,20 +140,20 @@ export class RestClass {
     default: false,
   })
   deleted: false;
-  
+
   @Prop({
     type: Object,
     required: false,
     default: {
       order: [],
       // с добавлением новых полей тут тоже надо менять
-    }
+    },
   })
   // не забываем обновить rest-from-db.interface.ts на клиенте, когда добавляем новые типы
   mailTo: {
-    order: string[],
+    order: string[];
     // добавляем новые типы уведомлений так же, как и order
-  }
+  };
 }
 
 export const RestSchema = SchemaFactory.createForClass(RestClass);

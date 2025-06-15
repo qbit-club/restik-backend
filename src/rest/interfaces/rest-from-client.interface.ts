@@ -14,4 +14,5 @@ export interface RestFromClient {
   managers?:string[]
   isHidden?: Boolean
   deleted?: Boolean
+  placeOnShowcase?: number
 }
